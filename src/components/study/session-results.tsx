@@ -10,6 +10,7 @@ interface SessionResultsProps {
   xpEarned: number;
   setId: string;
   onStudyAgain: () => void;
+  isPractice?: boolean;
 }
 
 export function SessionResults({
@@ -19,6 +20,7 @@ export function SessionResults({
   xpEarned,
   setId,
   onStudyAgain,
+  isPractice,
 }: SessionResultsProps) {
   const accuracy =
     totalReviewed > 0 ? Math.round((correctCount / totalReviewed) * 100) : 0;
@@ -76,10 +78,25 @@ export function SessionResults({
         <Button variant="outline" className="flex-1" asChild>
           <Link to={`/sets/${setId}`}>К набору</Link>
         </Button>
-        <Button className="flex-1" onClick={onStudyAgain}>
-          <RotateCcw className="size-4" />
-          Учить снова
-        </Button>
+        {isPractice ? (
+          <Button className="flex-1" onClick={onStudyAgain}>
+            <RotateCcw className="size-4" />
+            Повторить снова
+          </Button>
+        ) : (
+          <>
+            <Button className="flex-1" onClick={onStudyAgain}>
+              <RotateCcw className="size-4" />
+              Учить снова
+            </Button>
+            <Button variant="outline" className="flex-1" asChild>
+              <Link to={`/study/${setId}?practice=true`}>
+                <RotateCcw className="size-4" />
+                Повторить все
+              </Link>
+            </Button>
+          </>
+        )}
       </div>
     </div>
   );

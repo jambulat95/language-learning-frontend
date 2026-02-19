@@ -25,6 +25,10 @@ import { ResetPasswordPage } from "@/pages/reset-password-page";
 import { StatisticsPage } from "@/pages/statistics-page";
 import { FriendsPage } from "@/pages/friends-page";
 import { FriendProgressPage } from "@/pages/friend-progress-page";
+import { ProfilePage } from "@/pages/profile-page";
+import { AdminDashboardPage } from "@/pages/admin-dashboard-page";
+import { AdminUsersPage } from "@/pages/admin-users-page";
+import { AdminCardSetsPage } from "@/pages/admin-card-sets-page";
 import { NotFoundPage } from "@/pages/not-found-page";
 
 function App() {
@@ -62,6 +66,10 @@ function App() {
               <Route path="/leaderboard" element={<LeaderboardPage />} />
               <Route path="/friends" element={<FriendsPage />} />
               <Route path="/friends/:userId/progress" element={<FriendProgressPage />} />
+              <Route path="/profile" element={<ProfilePage />} />
+              <Route path="/admin" element={<AdminDashboardPage />} />
+              <Route path="/admin/users" element={<AdminUsersPage />} />
+              <Route path="/admin/card-sets" element={<AdminCardSetsPage />} />
             </Route>
           </Route>
 

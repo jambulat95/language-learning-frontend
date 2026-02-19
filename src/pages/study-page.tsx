@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, useSearchParams, Link } from "react-router-dom";
 import { toast } from "sonner";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -15,7 +15,9 @@ import type { ReviewRating, ReviewResult } from "@/types";
 
 export function StudyPage() {
   const { id: setId } = useParams<{ id: string }>();
-  const { data: cards, isLoading, error, refetch } = useDueCards(setId!, 20);
+  const [searchParams] = useSearchParams();
+  const isPractice = searchParams.get("practice") === "true";
+  const { data: cards, isLoading, error, refetch } = useDueCards(setId!, 20, isPractice);
   const reviewMutation = useSubmitReview(setId!);
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -94,7 +96,7 @@ export function StudyPage() {
   }
 
   if (!cards || cards.length === 0) {
-    return <StudyEmpty setId={setId!} />;
+    return <StudyEmpty setId={setId!} isPractice={isPractice} />;
   }
 
   if (sessionDone) {
@@ -109,6 +111,7 @@ export function StudyPage() {
         xpEarned={totalXpEarned}
         setId={setId!}
         onStudyAgain={handleStudyAgain}
+        isPractice={isPractice}
       />
     );
   }

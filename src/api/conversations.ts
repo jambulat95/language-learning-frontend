@@ -104,6 +104,9 @@ export async function sendMessageSSE(
   const decoder = new TextDecoder();
   let buffer = "";
 
+  let currentEvent = "";
+  let currentData = "";
+
   try {
     while (true) {
       const { done, value } = await reader.read();
@@ -115,10 +118,8 @@ export async function sendMessageSSE(
       const lines = buffer.split("\n");
       buffer = lines.pop() ?? "";
 
-      let currentEvent = "";
-      let currentData = "";
-
-      for (const line of lines) {
+      for (const rawLine of lines) {
+        const line = rawLine.replace(/\r$/, "");
         if (line.startsWith("event: ")) {
           currentEvent = line.slice(7).trim();
         } else if (line.startsWith("data: ")) {

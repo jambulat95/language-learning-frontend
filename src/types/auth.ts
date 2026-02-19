@@ -21,6 +21,7 @@ export interface User {
   daily_xp_goal: number;
   is_premium: boolean;
   is_active: boolean;
+  is_admin: boolean;
   created_at: string;
   updated_at: string | null;
   interests: Interest[];

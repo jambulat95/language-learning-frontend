@@ -19,13 +19,13 @@ export function CardItem({ card, onEdit, onDelete, isOwner }: CardItemProps) {
   return (
     <div className="flex items-start gap-3 rounded-lg border p-3">
       <div className="flex-1 min-w-0 space-y-1">
-        <div className="flex items-baseline gap-2">
+        <p className="break-words">
           <span className="font-medium">{card.front_text}</span>
-          <span className="text-muted-foreground">&mdash;</span>
+          <span className="text-muted-foreground"> — </span>
           <span className="text-muted-foreground">{card.back_text}</span>
-        </div>
+        </p>
         {card.example_sentence && (
-          <p className="text-sm italic text-muted-foreground truncate">
+          <p className="break-words text-sm italic text-muted-foreground">
             {card.example_sentence}
           </p>
         )}

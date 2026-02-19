@@ -2,7 +2,6 @@ import { NavLink } from "react-router-dom";
 import {
   LayoutDashboard,
   Layers,
-  GraduationCap,
   Sparkles,
   MessageSquare,
   BarChart3,
@@ -11,6 +10,9 @@ import {
   Users,
   UserCircle,
   LogOut,
+  Shield,
+  UserCog,
+  ShieldAlert,
 } from "lucide-react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
@@ -22,7 +24,6 @@ import { cn } from "@/lib/utils";
 const navItems = [
   { to: "/dashboard", label: "Главная", icon: LayoutDashboard },
   { to: "/sets", label: "Наборы карточек", icon: Layers },
-  { to: "/study", label: "Учить", icon: GraduationCap },
   { to: "/generate", label: "AI-генерация", icon: Sparkles },
   { to: "/conversations", label: "AI-чат", icon: MessageSquare },
   { to: "/statistics", label: "Статистика", icon: BarChart3 },
@@ -30,6 +31,12 @@ const navItems = [
   { to: "/leaderboard", label: "Лидеры", icon: Medal },
   { to: "/friends", label: "Друзья", icon: Users },
   { to: "/profile", label: "Профиль", icon: UserCircle },
+];
+
+const adminNavItems = [
+  { to: "/admin", label: "Админ", icon: Shield },
+  { to: "/admin/users", label: "Пользователи", icon: UserCog },
+  { to: "/admin/card-sets", label: "Модерация", icon: ShieldAlert },
 ];
 
 export function Sidebar() {
@@ -60,6 +67,29 @@ export function Sidebar() {
             {item.label}
           </NavLink>
         ))}
+        {user?.is_admin && (
+          <>
+            <Separator className="my-2" />
+            {adminNavItems.map((item) => (
+              <NavLink
+                key={item.to}
+                to={item.to}
+                end={item.to === "/admin"}
+                className={({ isActive }) =>
+                  cn(
+                    "flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors",
+                    isActive
+                      ? "bg-sidebar-accent text-sidebar-accent-foreground"
+                      : "text-sidebar-foreground/70 hover:bg-sidebar-accent/50 hover:text-sidebar-foreground",
+                  )
+                }
+              >
+                <item.icon className="h-4 w-4" />
+                {item.label}
+              </NavLink>
+            ))}
+          </>
+        )}
       </nav>
       <Separator />
       <div className="flex items-center gap-3 px-4 py-3">

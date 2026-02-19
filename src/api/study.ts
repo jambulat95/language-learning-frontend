@@ -4,10 +4,11 @@ import type { ReviewRating, ReviewResult, StudyCard, StudySetProgress } from "@/
 export async function getDueCardsApi(
   setId: string,
   limit = 20,
+  practice = false,
 ): Promise<StudyCard[]> {
   const response = await client.get<StudyCard[]>(
     `/study/sets/${setId}/due-cards`,
-    { params: { limit } },
+    { params: { limit, ...(practice && { practice: true }) } },
   );
   return response.data;
 }

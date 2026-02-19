@@ -11,7 +11,7 @@ interface SetCardProps {
 export function SetCard({ set }: SetCardProps) {
   return (
     <Link to={`/sets/${set.id}`}>
-      <Card className="transition-colors hover:bg-accent/30">
+      <Card className="flex h-full flex-col transition-colors hover:bg-accent/30">
         <CardHeader>
           <div className="flex items-start justify-between gap-2">
             <CardTitle className="text-base leading-tight">
@@ -22,13 +22,13 @@ export function SetCard({ set }: SetCardProps) {
             </Badge>
           </div>
         </CardHeader>
-        <CardContent>
+        <CardContent className="flex flex-1 flex-col">
           {set.description && (
             <p className="mb-3 line-clamp-2 text-sm text-muted-foreground">
               {set.description}
             </p>
           )}
-          <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+          <div className="mt-auto flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
             <span className="flex items-center gap-1">
               <Layers className="size-3.5" />
               {set.card_count} карточек

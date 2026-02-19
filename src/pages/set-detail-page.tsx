@@ -181,32 +181,32 @@ export function SetDetailPage() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex items-start justify-between gap-4">
-        <div className="space-y-2">
-          <div className="flex items-center gap-3">
-            <Button variant="ghost" size="icon-sm" asChild>
-              <Link to="/sets">
-                <ArrowLeft className="size-4" />
-              </Link>
-            </Button>
-            <h1 className="text-2xl font-bold">{cardSet.title}</h1>
-          </div>
-          <div className="flex flex-wrap items-center gap-2">
-            <Badge variant="outline">{cardSet.difficulty_level}</Badge>
-            {cardSet.category && (
-              <Badge variant="secondary">{cardSet.category}</Badge>
-            )}
-            <span className="flex items-center gap-1 text-sm text-muted-foreground">
-              <Layers className="size-3.5" />
-              {cardSet.card_count} карточек
-            </span>
-          </div>
-          {cardSet.description && (
-            <p className="text-sm text-muted-foreground">
-              {cardSet.description}
-            </p>
-          )}
+      <div className="space-y-3">
+        <div className="flex items-center gap-3">
+          <Button variant="ghost" size="icon-sm" asChild>
+            <Link to="/sets">
+              <ArrowLeft className="size-4" />
+            </Link>
+          </Button>
+          <h1 className="min-w-0 truncate text-2xl font-bold">{cardSet.title}</h1>
         </div>
+
+        <div className="flex flex-wrap items-center gap-2">
+          <Badge variant="outline">{cardSet.difficulty_level}</Badge>
+          {cardSet.category && (
+            <Badge variant="secondary">{cardSet.category}</Badge>
+          )}
+          <span className="flex items-center gap-1 text-sm text-muted-foreground">
+            <Layers className="size-3.5" />
+            {cardSet.card_count} карточек
+          </span>
+        </div>
+
+        {cardSet.description && (
+          <p className="text-sm text-muted-foreground">
+            {cardSet.description}
+          </p>
+        )}
 
         <div className="flex items-center gap-2">
           {cardSet.card_count > 0 && (

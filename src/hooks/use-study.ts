@@ -2,10 +2,10 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { getDueCardsApi, getStudyProgressApi, submitReviewApi } from "@/api/study";
 import type { ReviewRating } from "@/types";
 
-export function useDueCards(setId: string, limit = 20) {
+export function useDueCards(setId: string, limit = 20, practice = false) {
   return useQuery({
-    queryKey: ["due-cards", setId, limit],
-    queryFn: () => getDueCardsApi(setId, limit),
+    queryKey: ["due-cards", setId, limit, practice],
+    queryFn: () => getDueCardsApi(setId, limit, practice),
     enabled: !!setId,
   });
 }
