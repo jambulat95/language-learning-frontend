@@ -98,7 +98,7 @@ export function RegisterPage() {
   };
 
   return (
-    <Card>
+    <Card className="overflow-hidden">
       <CardHeader className="text-center">
         <StepIndicator currentStep={step} totalSteps={2} />
         <CardTitle className="text-2xl">Создать аккаунт</CardTitle>

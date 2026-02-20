@@ -74,7 +74,8 @@ export async function sendMessageSSE(
 ): Promise<void> {
   const token = useAuthStore.getState().accessToken;
 
-  const response = await fetch(`/api/v1/conversations/${conversationId}/send`, {
+  const baseUrl = import.meta.env.VITE_API_URL || "/api/v1";
+  const response = await fetch(`${baseUrl}/conversations/${conversationId}/send`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
