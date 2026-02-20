@@ -1,6 +1,7 @@
 import { Navigate } from "react-router-dom";
 import { useAuthStore } from "@/stores";
 import { LoadingScreen } from "@/components/loading-screen";
+import { LandingPage } from "@/pages/landing-page";
 
 export function HomePage() {
   const { user, isLoading } = useAuthStore();
@@ -9,5 +10,9 @@ export function HomePage() {
     return <LoadingScreen />;
   }
 
-  return <Navigate to={user ? "/dashboard" : "/login"} replace />;
+  if (user) {
+    return <Navigate to="/dashboard" replace />;
+  }
+
+  return <LandingPage />;
 }

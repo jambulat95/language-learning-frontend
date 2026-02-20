@@ -12,7 +12,7 @@ export function setAuthStoreAccessor(accessor: typeof authStoreAccessor) {
 }
 
 const client = axios.create({
-  baseURL: "/api/v1",
+  baseURL: import.meta.env.VITE_API_URL || "/api/v1",
   withCredentials: true,
 });
 
@@ -68,7 +68,7 @@ client.interceptors.response.use(
 
     try {
       const { data } = await axios.post<TokenResponse>(
-        "/api/v1/auth/refresh",
+        `${import.meta.env.VITE_API_URL || "/api/v1"}/auth/refresh`,
         null,
         { withCredentials: true },
       );
