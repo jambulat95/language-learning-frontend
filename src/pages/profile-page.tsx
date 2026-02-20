@@ -12,7 +12,6 @@ import { InterestPicker } from "@/components/auth/interest-picker";
 import { useAuthStore } from "@/stores";
 import { useUpdateMe } from "@/hooks/use-user";
 import { useUsageLimits } from "@/hooks/use-limits";
-import { LEVELS } from "@/lib/constants/levels";
 import { getApiErrorMessage } from "@/lib/errors";
 import type { InterestType, LanguageLevel } from "@/types";
 

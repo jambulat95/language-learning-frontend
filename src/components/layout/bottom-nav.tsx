@@ -8,7 +8,12 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const navItems = [
+const navItems: {
+  to: string;
+  label: string;
+  icon: typeof LayoutDashboard;
+  disabled?: boolean;
+}[] = [
   { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { to: "/sets", label: "Sets", icon: Layers },
   { to: "/generate", label: "AI", icon: Sparkles },

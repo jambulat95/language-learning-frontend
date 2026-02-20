@@ -21,7 +21,12 @@ import { Button } from "@/components/ui/button";
 import { useAuthStore } from "@/stores";
 import { cn } from "@/lib/utils";
 
-const navItems = [
+const navItems: {
+  to: string;
+  label: string;
+  icon: typeof LayoutDashboard;
+  disabled?: boolean;
+}[] = [
   { to: "/dashboard", label: "Главная", icon: LayoutDashboard },
   { to: "/sets", label: "Наборы карточек", icon: Layers },
   { to: "/generate", label: "AI-генерация", icon: Sparkles },

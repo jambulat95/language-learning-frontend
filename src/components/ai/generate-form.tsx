@@ -1,4 +1,4 @@
-import { useForm } from "react-hook-form";
+import { useForm, type Resolver } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -38,7 +38,7 @@ export function GenerateForm({
     watch,
     formState: { errors },
   } = useForm<GenerateCardsValues>({
-    resolver: zodResolver(generateCardsSchema),
+    resolver: zodResolver(generateCardsSchema) as Resolver<GenerateCardsValues>,
     defaultValues: {
       topic: "",
       difficulty_level: defaultLevel,
