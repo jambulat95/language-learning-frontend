@@ -221,7 +221,7 @@ export function RegisterPage() {
                   <Button
                     type="button"
                     variant="outline"
-                    className="w-full"
+                    className="flex-1"
                     onClick={goBack}
                   >
                     <ArrowLeft className="size-4" />
@@ -229,7 +229,7 @@ export function RegisterPage() {
                   </Button>
                   <Button
                     type="submit"
-                    className="w-full"
+                    className="flex-1"
                     disabled={isSubmitting}
                   >
                     {isSubmitting && <Loader2 className="animate-spin" />}
