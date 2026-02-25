@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { GraduationCap, Menu, X } from "lucide-react";
+import { BrandLogo } from "@/components/brand-logo";
+import { Menu, X } from "lucide-react";
 
 export function LandingHeader() {
   const [scrolled, setScrolled] = useState(false);
@@ -39,7 +40,7 @@ export function LandingHeader() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 font-bold text-lg">
-          <GraduationCap className="size-6 text-primary" />
+          <BrandLogo className="size-6 text-primary" />
           <span>LangLearn</span>
         </Link>
 

@@ -19,6 +19,7 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import { useAuthStore } from "@/stores";
+import { BrandLogo } from "@/components/brand-logo";
 import { cn } from "@/lib/utils";
 
 const navItems: {
@@ -49,7 +50,8 @@ export function Sidebar() {
 
   return (
     <aside className="hidden md:flex w-64 flex-col border-r bg-sidebar text-sidebar-foreground">
-      <div className="flex h-14 items-center px-6 font-bold text-lg">
+      <div className="flex h-14 items-center gap-2 px-6 font-bold text-lg">
+        <BrandLogo className="size-5 text-primary" />
         LangLearn
       </div>
       <Separator />

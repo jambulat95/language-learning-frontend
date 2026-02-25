@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { GraduationCap } from "lucide-react";
+import { BrandLogo } from "@/components/brand-logo";
 import { Separator } from "@/components/ui/separator";
 
 export function LandingFooter() {
@@ -10,7 +10,7 @@ export function LandingFooter() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 font-bold text-lg">
-              <GraduationCap className="size-5 text-primary" />
+              <BrandLogo className="size-5 text-primary" />
               <span>LangLearn</span>
             </div>
             <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
